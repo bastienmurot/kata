@@ -1,4 +1,5 @@
-﻿using CoffeeMachine.Drink;
+﻿using System;
+using CoffeeMachine.Drink;
 
 namespace CoffeeMachine
 {
@@ -9,6 +10,10 @@ namespace CoffeeMachine
         public void SelectDrink(ISelectableDrink selectedDrink)
         {
             _selectableDrink = selectedDrink;
+        }
+
+        public void AddSugar()
+        {
         }
 
         public string GetOrder()

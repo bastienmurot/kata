@@ -3,11 +3,11 @@ namespace CoffeeMachine.Tests
     using CoffeeMachine.Drink;
     using Xunit;
 
-    public class TestCoffeeMachine
+    public class Drink
     {
         private readonly DrinkBuilder _drinkBuilder;
 
-        public TestCoffeeMachine()
+        public Drink()
         {
             _drinkBuilder = new DrinkBuilder();
         }
