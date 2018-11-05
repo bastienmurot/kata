@@ -1,5 +1,6 @@
 namespace CoffeeMachine.Tests
 {
+    using CoffeeMachine.Drink;
     using Xunit;
 
     public class TestCoffeeMachine
@@ -15,7 +16,7 @@ namespace CoffeeMachine.Tests
         public void GivenChocolateActionShouldGenerateChocolateOrder()
         {
             // Arrange
-            _drinkBuilder.AddChocolate();
+            _drinkBuilder.SelectDrink(new Chocolate());
 
             // Act
             string result = _drinkBuilder.GetOrder();
@@ -28,7 +29,7 @@ namespace CoffeeMachine.Tests
         public void GivenTeaActionShouldGenerateTeaOrder()
         {
             // Arrange
-            _drinkBuilder.AddTea();
+            _drinkBuilder.SelectDrink(new Tea());
 
             // Act
             string result = _drinkBuilder.GetOrder();
@@ -41,7 +42,7 @@ namespace CoffeeMachine.Tests
         public void GivenCoffeeActionShouldGenerateCoffeeOrder()
         {
             // Arrange
-            _drinkBuilder.AddCoffee();
+            _drinkBuilder.SelectDrink(new Coffee());
 
             // Act
             string result = _drinkBuilder.GetOrder();
