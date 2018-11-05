@@ -23,9 +23,7 @@
 
             order = _selectableDrink.GenerateOrder();
 
-            order += _sugarCount > 0 ? ":" + _sugarCount : ":";
-
-            order += ":";
+            order += _sugarCount > 0 ? ":" + _sugarCount + ":0" : "::";
 
             return order;
         }

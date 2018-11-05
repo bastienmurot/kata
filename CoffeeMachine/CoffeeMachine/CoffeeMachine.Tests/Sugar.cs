@@ -16,22 +16,22 @@
         }
 
         [Fact]
-        public void GivenAddOneSugarShouldHaveOneSugar()
+        public void GivenAddOneSugarShouldHaveOneSugarPlusStick()
         {
             // Arrange
             var drinkBuilder = new DrinkBuilder();
             drinkBuilder.SelectDrink(new Coffee());
             drinkBuilder.AddSugar();
 
-           // Act
-           var result = drinkBuilder.GetOrder();
+            // Act
+            var result = drinkBuilder.GetOrder();
 
             // Assert
-            Assert.Equal("C:1:", result);
+            Assert.Equal("C:1:0", result);
         }
 
         [Fact]
-        public void GivenAddTwoSugarShouldHaveTwoSugar()
+        public void GivenAddTwoSugarShouldHaveTwoSugarPlusStick()
         {
             // Arrange
             var drinkBuilder = new DrinkBuilder();
@@ -43,7 +43,7 @@
             var result = drinkBuilder.GetOrder();
 
             // Assert
-            Assert.Equal("C:2:", result);
+            Assert.Equal("C:2:0", result);
         }
     }
 }
