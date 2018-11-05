@@ -9,5 +9,19 @@ namespace CoffeeMachine.Tests
         {
             var drinkBuilder = new DrinkBuilder();
         }
+
+        [Fact]
+        public void GivenChocolateActionShouldGenerateChocolateOrder()
+        {
+            // Arrange
+            var drinkBuilder = new DrinkBuilder();
+            drinkBuilder.AddChocolate();
+
+            // Act
+            string result = drinkBuilder.GetOrder();
+
+            // Assert
+            Assert.Equal("H::", result);
+        }
     }
 }
