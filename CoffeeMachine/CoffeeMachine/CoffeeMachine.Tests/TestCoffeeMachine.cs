@@ -4,24 +4,50 @@ namespace CoffeeMachine.Tests
 
     public class TestCoffeeMachine
     {
-        [Fact]
-        public void ItExists()
+        private readonly DrinkBuilder _drinkBuilder;
+
+        public TestCoffeeMachine()
         {
-            var drinkBuilder = new DrinkBuilder();
+            _drinkBuilder = new DrinkBuilder();
         }
 
         [Fact]
         public void GivenChocolateActionShouldGenerateChocolateOrder()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder();
-            drinkBuilder.AddChocolate();
+            _drinkBuilder.AddChocolate();
 
             // Act
-            string result = drinkBuilder.GetOrder();
+            string result = _drinkBuilder.GetOrder();
 
             // Assert
             Assert.Equal("H::", result);
+        }
+
+        [Fact]
+        public void GivenTeaActionShouldGenerateTeaOrder()
+        {
+            // Arrange
+            _drinkBuilder.AddTea();
+
+            // Act
+            string result = _drinkBuilder.GetOrder();
+
+            // Assert
+            Assert.Equal("T::", result);
+        }
+
+        [Fact]
+        public void GivenCoffeeActionShouldGenerateCoffeeOrder()
+        {
+            // Arrange
+            _drinkBuilder.AddCoffee();
+
+            // Act
+            string result = _drinkBuilder.GetOrder();
+
+            // Assert
+            Assert.Equal("C::", result);
         }
     }
 }
