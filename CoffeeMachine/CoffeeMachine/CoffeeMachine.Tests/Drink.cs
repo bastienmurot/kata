@@ -1,6 +1,7 @@
 namespace CoffeeMachine.Tests
 {
     using CoffeeMachine.Drink;
+    using CoffeeMachine.Sugar;
     using Xunit;
 
     public class Drink
@@ -9,7 +10,7 @@ namespace CoffeeMachine.Tests
 
         public Drink()
         {
-            _drinkBuilder = new DrinkBuilder();
+            _drinkBuilder = new DrinkBuilder(new SugarService());
         }
 
         [Fact]

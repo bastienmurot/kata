@@ -1,30 +1,27 @@
 ﻿namespace CoffeeMachine.Tests
 {
     using CoffeeMachine.Drink;
+    using CoffeeMachine.Sugar;
     using Xunit;
 
     public class Sugar
     {
-        [Fact]
-        public void ItHasMethod()
-        {
-            // Arrange
-            var drinkBuilder = new DrinkBuilder();
+        private readonly DrinkBuilder _drinkBuilder;
 
-            // Act & Assert
-            drinkBuilder.AddSugar();
+        public Sugar()
+        {
+            _drinkBuilder = new DrinkBuilder(new SugarService());
         }
 
         [Fact]
         public void GivenAddOneSugarShouldHaveOneSugarPlusStick()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder();
-            drinkBuilder.SelectDrink(new Coffee());
-            drinkBuilder.AddSugar();
+            _drinkBuilder.SelectDrink(new Coffee());
+            _drinkBuilder.AddSugar();
 
             // Act
-            var result = drinkBuilder.GetOrder();
+            var result = _drinkBuilder.GetOrder();
 
             // Assert
             Assert.Equal("C:1:0", result);
@@ -34,13 +31,12 @@
         public void GivenAddTwoSugarShouldHaveTwoSugarPlusStick()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder();
-            drinkBuilder.SelectDrink(new Coffee());
-            drinkBuilder.AddSugar();
-            drinkBuilder.AddSugar();
+            _drinkBuilder.SelectDrink(new Coffee());
+            _drinkBuilder.AddSugar();
+            _drinkBuilder.AddSugar();
 
             // Act
-            var result = drinkBuilder.GetOrder();
+            var result = _drinkBuilder.GetOrder();
 
             // Assert
             Assert.Equal("C:2:0", result);
