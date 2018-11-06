@@ -1,10 +1,15 @@
 ﻿namespace CoffeeMachine.Drink
 {
-    public class Tea : ISelectableDrink
+    public class Tea : DrinkType
     {
-        public string GenerateOrder()
+        public override string GenerateOrder()
         {
             return "T";
+        }
+
+        public override string GetTextForUi()
+        {
+            return "tea";
         }
     }
 }

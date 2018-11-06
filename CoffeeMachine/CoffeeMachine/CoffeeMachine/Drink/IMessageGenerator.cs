@@ -1,7 +1,9 @@
 ﻿namespace CoffeeMachine.Drink
 {
-    public interface ISelectableDrink
+    public interface IMessageGenerator
     {
         string GenerateOrder();
+
+        string GetTextForUi();
     }
 }

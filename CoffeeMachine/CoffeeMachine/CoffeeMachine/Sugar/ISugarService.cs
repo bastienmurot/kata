@@ -1,7 +1,9 @@
 ﻿namespace CoffeeMachine.Sugar
 {
-    public interface ISugarService
+    using CoffeeMachine.Drink;
+
+    public interface ISugarService : IMessageGenerator
     {
-        string GenerateOrder(int sugarCount);
+        void AddSugar();
     }
 }

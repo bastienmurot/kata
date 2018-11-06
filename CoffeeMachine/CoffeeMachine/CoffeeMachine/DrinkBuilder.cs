@@ -5,29 +5,31 @@
 
     public class DrinkBuilder
     {
-        private ISelectableDrink _selectableDrink;
+        private DrinkType _selectableDrink;
         private readonly ISugarService _sugarService;
-
-        private int _sugarCount = 0;
 
         public DrinkBuilder(ISugarService sugarService)
         {
             _sugarService = sugarService;
         }
 
-        public void SelectDrink(ISelectableDrink selectedDrink)
+        public void SelectDrink(DrinkType selectedDrink)
         {
             _selectableDrink = selectedDrink;
         }
 
         public void AddSugar()
         {
-            _sugarCount++;
+            _sugarService.AddSugar();
         }
 
         public string SendMessageToUi()
         {
-            return string.Empty;
+            string drink = _selectableDrink.GetTextForUi();
+
+            string sugar = _sugarService.GetTextForUi();
+
+            return $"M:Drink maker makes 1 {drink} with {sugar}";
         }
 
         public string GetOrder()
@@ -36,7 +38,7 @@
 
             order = _selectableDrink.GenerateOrder();
 
-            order += _sugarService.GenerateOrder(_sugarCount);
+            order += _sugarService.GenerateOrder();
 
             return order;
         }

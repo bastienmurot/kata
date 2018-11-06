@@ -14,7 +14,7 @@ namespace CoffeeMachine.Tests
         }
 
         [Fact]
-        public void GivenChocolateActionShouldGenerateChocolateOrder()
+        public void GivenChocolateSelectionShouldGenerateChocolateOrder()
         {
             // Arrange
             _drinkBuilder.SelectDrink(new Chocolate());
@@ -27,7 +27,7 @@ namespace CoffeeMachine.Tests
         }
 
         [Fact]
-        public void GivenTeaActionShouldGenerateTeaOrder()
+        public void GivenTeaSelectionShouldGenerateTeaOrder()
         {
             // Arrange
             _drinkBuilder.SelectDrink(new Tea());
@@ -40,7 +40,7 @@ namespace CoffeeMachine.Tests
         }
 
         [Fact]
-        public void GivenCoffeeActionShouldGenerateCoffeeOrder()
+        public void GivenCoffeeSelectionShouldGenerateCoffeeOrder()
         {
             // Arrange
             _drinkBuilder.SelectDrink(new Coffee());
