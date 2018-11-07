@@ -11,5 +11,7 @@
         {
             return "coffee";
         }
+
+        public override double Price => 0.6;
     }
 }

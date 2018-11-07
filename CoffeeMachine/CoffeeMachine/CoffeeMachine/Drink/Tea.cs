@@ -11,5 +11,7 @@
         {
             return "tea";
         }
+
+        public override double Price => 0.4;
     }
 }

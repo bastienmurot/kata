@@ -11,5 +11,7 @@
         {
             return "chocolate";
         }
+
+        public override double Price => 0.5;
     }
 }

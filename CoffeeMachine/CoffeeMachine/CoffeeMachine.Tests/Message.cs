@@ -1,6 +1,7 @@
 ﻿namespace CoffeeMachine.Tests
 {
     using CoffeeMachine.Drink;
+    using CoffeeMachine.Money;
     using CoffeeMachine.Sugar;
     using Xunit;
 
@@ -10,7 +11,7 @@
 
         public Message()
         {
-            _drinkBuilder = new DrinkBuilder(new SugarService());
+            _drinkBuilder = new DrinkBuilder(new SugarService(), new MoneyAmountService());
         }
  
         [Fact]
@@ -18,6 +19,7 @@
         {
             // Arrange
             _drinkBuilder.SelectDrink(new Chocolate());
+            _drinkBuilder.InsertMoney(0.5);
 
             // Act
             string result = _drinkBuilder.SendMessageToUi();
@@ -31,6 +33,7 @@
         {
             // Arrange
             _drinkBuilder.SelectDrink(new Tea());
+            _drinkBuilder.InsertMoney(0.4);
 
             // Act
             string result = _drinkBuilder.SendMessageToUi();
@@ -44,6 +47,7 @@
         {
             // Arrange
             _drinkBuilder.SelectDrink(new Coffee());
+            _drinkBuilder.InsertMoney(0.6);
 
             // Act
             string result = _drinkBuilder.SendMessageToUi();
@@ -58,6 +62,7 @@
             // Arrange
             _drinkBuilder.SelectDrink(new Chocolate());
             _drinkBuilder.AddSugar();
+            _drinkBuilder.InsertMoney(0.5);
 
             // Act
             string result = _drinkBuilder.SendMessageToUi();
@@ -73,6 +78,7 @@
             _drinkBuilder.SelectDrink(new Chocolate());
             _drinkBuilder.AddSugar();
             _drinkBuilder.AddSugar();
+            _drinkBuilder.InsertMoney(0.5);
 
             // Act
             string result = _drinkBuilder.SendMessageToUi();

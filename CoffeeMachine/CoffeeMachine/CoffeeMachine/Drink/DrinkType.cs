@@ -5,5 +5,7 @@
         public abstract string GenerateOrder();
 
         public abstract string GetTextForUi();
+
+        public abstract double Price { get; }
     }
 }
