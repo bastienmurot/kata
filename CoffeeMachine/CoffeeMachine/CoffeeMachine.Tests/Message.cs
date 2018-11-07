@@ -6,15 +6,21 @@
 
     public class Message
     {
+        private readonly DrinkBuilder _drinkBuilder;
+
+        public Message()
+        {
+            _drinkBuilder = new DrinkBuilder(new SugarService());
+        }
+ 
         [Fact]
         public void GivenChocolateSelectionShouldGenerateMessageToUI()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder(new SugarService());
-            drinkBuilder.SelectDrink(new Chocolate());
+            _drinkBuilder.SelectDrink(new Chocolate());
 
             // Act
-            string result = drinkBuilder.SendMessageToUi();
+            string result = _drinkBuilder.SendMessageToUi();
 
             // Assert
             Assert.Equal("M:Drink maker makes 1 chocolate with no sugar and therefore no stick", result);
@@ -24,11 +30,10 @@
         public void GivenTeaSelectionShouldGenerateMessageToUI()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder(new SugarService());
-            drinkBuilder.SelectDrink(new Tea());
+            _drinkBuilder.SelectDrink(new Tea());
 
             // Act
-            string result = drinkBuilder.SendMessageToUi();
+            string result = _drinkBuilder.SendMessageToUi();
 
             // Assert
             Assert.Equal("M:Drink maker makes 1 tea with no sugar and therefore no stick", result);
@@ -38,11 +43,10 @@
         public void GivenCoffeeSelectionShouldGenerateMessageToUI()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder(new SugarService());
-            drinkBuilder.SelectDrink(new Coffee());
+            _drinkBuilder.SelectDrink(new Coffee());
 
             // Act
-            string result = drinkBuilder.SendMessageToUi();
+            string result = _drinkBuilder.SendMessageToUi();
 
             // Assert
             Assert.Equal("M:Drink maker makes 1 coffee with no sugar and therefore no stick", result);
@@ -52,12 +56,11 @@
         public void GivenChocolateSelectionWithOneSugarShouldGenerateMessageToUI()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder(new SugarService());
-            drinkBuilder.SelectDrink(new Chocolate());
-            drinkBuilder.AddSugar();
+            _drinkBuilder.SelectDrink(new Chocolate());
+            _drinkBuilder.AddSugar();
 
             // Act
-            string result = drinkBuilder.SendMessageToUi();
+            string result = _drinkBuilder.SendMessageToUi();
 
             // Assert
             Assert.Equal("M:Drink maker makes 1 chocolate with 1 sugar and a stick", result);
@@ -67,13 +70,12 @@
         public void GivenChocolateSelectionWithTwoSugarShouldGenerateMessageToUI()
         {
             // Arrange
-            var drinkBuilder = new DrinkBuilder(new SugarService());
-            drinkBuilder.SelectDrink(new Chocolate());
-            drinkBuilder.AddSugar();
-            drinkBuilder.AddSugar();
+            _drinkBuilder.SelectDrink(new Chocolate());
+            _drinkBuilder.AddSugar();
+            _drinkBuilder.AddSugar();
 
             // Act
-            string result = drinkBuilder.SendMessageToUi();
+            string result = _drinkBuilder.SendMessageToUi();
 
             // Assert
             Assert.Equal("M:Drink maker makes 1 chocolate with 2 sugars and a stick", result);
