@@ -1,5 +1,6 @@
 ﻿namespace CoffeeMachine
 {
+    using System;
     using CoffeeMachine.Drink;
     using CoffeeMachine.Sugar;
 
@@ -11,6 +12,11 @@
         public DrinkBuilder(ISugarService sugarService)
         {
             _sugarService = sugarService;
+        }
+
+        public void InsertMoney(double money)
+        {
+            
         }
 
         public void SelectDrink(DrinkType selectedDrink)
