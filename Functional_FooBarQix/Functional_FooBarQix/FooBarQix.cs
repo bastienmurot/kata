@@ -10,29 +10,7 @@
 
             result = AreNumbersSpecialDivisible(result, numberToCheck);
 
-            result = AreNumberContainsSpecialNumbers(result, number);
-
             return result == string.Empty ? number : result;
-        }
-
-        private static string AreNumberContainsSpecialNumbers(string result, string number)
-        {
-            if (number.Contains("3"))
-            {
-                result += "Foo";
-            }
-
-            if (number.Contains("5"))
-            {
-                result += "Bar";
-            }
-
-            if (number.Contains("7"))
-            {
-                result += "Qix";
-            }
-
-            return result;
         }
 
         private static string AreNumbersSpecialDivisible(string result, int numberToCheck)
