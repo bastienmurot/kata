@@ -2,7 +2,7 @@ namespace Functional_FooBarQix.Test
 {
     using Xunit;
 
-    public class Compute
+    public sealed class Compute
     {
         private readonly FooBarQix _fooBarQix;
 
@@ -11,7 +11,7 @@ namespace Functional_FooBarQix.Test
             _fooBarQix = new FooBarQix();
         }
 
-        [Fact]
+        [Fact(Skip = "Used to initiate TDD")]
         public void ItExists()
         {
             // Arrange

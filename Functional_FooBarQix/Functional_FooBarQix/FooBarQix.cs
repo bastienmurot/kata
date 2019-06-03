@@ -1,36 +1,26 @@
 ﻿namespace Functional_FooBarQix
 {
-    public class FooBarQix
+    using System.Collections.Generic;
+
+    public sealed class FooBarQix
     {
-        public string Compute(string number)
+        private readonly IDictionary<string, string> _rules;
+
+        public FooBarQix()
         {
-            string result = string.Empty;
-
-            int numberToCheck = int.Parse(number);
-
-            result = AreNumbersSpecialDivisible(result, numberToCheck);
-
-            return result == string.Empty ? number : result;
+            _rules = new Dictionary<string, string> {
+                { "3", "Foo" },
+                { "5", "Bar" },
+                { "7", "Qix" }
+            };
         }
 
-        private static string AreNumbersSpecialDivisible(string result, int numberToCheck)
+        public string Compute(string number)
         {
-            if (numberToCheck % 3 == 0)
-            {
-                result += "Foo";
-            }
+            string result = int.Parse(number).ComputeBelongingToDivisibleRules(_rules)
+                            + number.ComputeBelongingToContainsRules(_rules);
 
-            if (numberToCheck % 5 == 0)
-            {
-                result += "Bar";
-            }
-
-            if (numberToCheck % 7 == 0)
-            {
-                result += "Qix";
-            }
-
-            return result;
+            return string.IsNullOrEmpty(result) ? number : result;
         }
     }
 }
