@@ -1,1 +1,1 @@
-Kata from http://simcap.github.io/coffeemachine/index.html
+A functional version in C# of FooBarQix kata from http://codingdojo.org/kata/FooBarQix/. Step 1
